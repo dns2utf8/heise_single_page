@@ -10,5 +10,5 @@ if (location.search.indexOf('seite=all') === -1) {
                 a.click();
             }
         }
-    });
+    }, true);
 }
