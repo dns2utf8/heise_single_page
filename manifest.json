@@ -3,7 +3,7 @@
   "description": "Displays news articles on heise.de and m.heise.de on a single page",
   "manifest_version": 2,
   "name": "Heise Single Page",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "homepage_url": "https://github.com/dns2utf8/heise_single_page",
   "icons": {
     "48": "icons/logo.png"
@@ -16,7 +16,8 @@
   "content_scripts": [
     {
       "matches": ["*://*.heise.de/*"],
-      "js": ["./hsp.js"]
+      "js": ["./hsp.js"],
+      "run_at": "document_end"
     }
   ]
 
