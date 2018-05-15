@@ -3,14 +3,12 @@
  */
 if (location.search.indexOf('seite=all') === -1) {
     window.addEventListener("load", ev => {
-        [].forEach.call(
-            document.querySelectorAll("a[href]"),
-            a => {
-                if (a.href.indexOf('seite=all') !== -1) {
-                    console.error(a);
-                    a.click();
-                }
+        let nodes = document.querySelectorAll("a[href]");
+        for (i in nodes) {
+            let a = nodes[i];
+            if (a.href.indexOf('seite=all') !== -1) {
+                a.click();
             }
-        );
+        }
     });
 }
