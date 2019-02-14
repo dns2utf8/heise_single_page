@@ -3,17 +3,21 @@
  */
 (function() {
 
-const handler = ev => {
+const clicker = needle => {
     const nodes = document.querySelectorAll("a[href]");
     nodes.forEach(a => {
-        if (a.href.indexOf('seite=all') !== -1) {
+        if (a.href.indexOf(needle) !== -1) {
             a.click();
         }
     });
 };
 
+if (location.pathname.indexOf('/forum/') === 0) {
+    clicker('show-thread-below-posting');
+}
+
 if (location.search.indexOf('seite=all') === -1) {
-    handler();
+    clicker('seite=all');
 }
 
 // Highlight Heise+
