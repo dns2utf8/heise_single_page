@@ -3,20 +3,24 @@
  */
 (function() {
 
-let handler = ev => {
-    let nodes = document.querySelectorAll("a[href]");
-    for (i in nodes) {
-        let a = nodes[i];
+const handler = ev => {
+    const nodes = document.querySelectorAll("a[href]");
+    nodes.forEach(a => {
         if (a.href.indexOf('seite=all') !== -1) {
             a.click();
         }
-    }
+    });
 };
-    
+
 if (location.search.indexOf('seite=all') === -1) {
     handler();
-    //window.addEventListener("load", handler, true);
-    //document.addEventListener("load", handler, true);
 }
+
+// Highlight Heise+
+const l = document.querySelectorAll('.heiseplus-logo');
+l.forEach(e => {
+    e.parentElement.parentElement.parentElement.style.background = '#a1c2e5';
+    e.parentElement.parentElement.parentElement.parentElement.style.background = '#a1c2e5';
+});
 
 })();
