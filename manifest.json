@@ -3,7 +3,7 @@
   "description": "Displays news articles on heise.de as single page",
   "manifest_version": 2,
   "name": "Heise Single Page",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "homepage_url": "https://github.com/dns2utf8/heise_single_page",
   "icons": {
     "48": "icons/logo.png"
