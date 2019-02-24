@@ -18,7 +18,7 @@ const find_parent_with_class_name = (node, class_name) => {
     let parentElement = node.parentElement;
     while (parentElement.classList.contains(class_name) === false) {
         if (parentElement.parentElement === null) {
-            return parentElement;
+            return node;
         }
         parentElement = parentElement.parentElement;
     }
