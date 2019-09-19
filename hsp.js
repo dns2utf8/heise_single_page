@@ -4,6 +4,7 @@
 (function() {
 
 const PLUS_COLOR = '#a1c2e5';
+const PAID_COLOR = 'rgb(208, 205, 196)';
 
 const clicker = needle => {
     const nodes = document.querySelectorAll("a[href]");
@@ -23,6 +24,22 @@ const find_parent_with_class_name = (node, class_name) => {
         parentElement = parentElement.parentElement;
     }
     return parentElement;
+};
+
+const mark_promos = _ => {
+    Array.from(document.querySelectorAll("article footer span"))
+        .filter(e => e.innerText.trim() === "heise-Angebot")
+        .forEach(e => {
+            const p = [
+                // main page
+                find_parent_with_class_name(e, "a-article-teaser"),
+                // newsticker
+                find_parent_with_class_name(e, "archiv-liste__item"),
+            ];
+            p.forEach(p => p.querySelectorAll("*")
+                .forEach(e => e.style.color = PAID_COLOR)
+            );
+        });
 };
 
 if (location.pathname.indexOf('/forum/') === 0) {
@@ -47,5 +64,12 @@ document.querySelectorAll('.heiseplus-logo')
     .forEach(e => {
         find_parent_with_class_name(e, 'article-header').style.background = PLUS_COLOR;
     });
+
+
+
+// Mark pure promo articles
+mark_promos();
+// delayed in /newsticker/
+setTimeout(mark_promos, 1500);
 
 })();
