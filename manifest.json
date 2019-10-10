@@ -12,6 +12,8 @@
   "permissions": [
     "activeTab"
   ],
+
+  "incognito": "spanning",
   
   "content_scripts": [
     {
