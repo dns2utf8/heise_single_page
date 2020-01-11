@@ -65,11 +65,20 @@ document.querySelectorAll('.heiseplus-logo')
         find_parent_with_class_name(e, 'article-header').style.background = PLUS_COLOR;
     });
 
-
-
 // Mark pure promo articles
 mark_promos();
 // delayed in /newsticker/
 setTimeout(mark_promos, 1500);
+
+const remove_tracking_notice = async _ => {
+    const item = await browser.storage.sync.get('tracker_notice');
+    if (item.tracker_notice === true) {
+        document.querySelectorAll('#uc-central-banner-modal')
+            .forEach(el => el.remove());
+    }
+};
+remove_tracking_notice();
+setTimeout(remove_tracking_notice, 1500);
+setTimeout(remove_tracking_notice, 2500);
 
 })();
