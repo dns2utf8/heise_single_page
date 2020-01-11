@@ -4,7 +4,7 @@
 
 - Add a config option to remove the broken tracking options modal dialog, synchronized if user uses firefox sync
 - Add a Changelog
-- Add new permission "storage"
+- Add new permission "storage" for storing the settings
 
 # 1.2.0
 
