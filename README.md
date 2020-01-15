@@ -10,6 +10,7 @@ Das Addon entfernt keine Werbung dafür gibt es z.B. uBlock Origin und Privacy B
 * Artikel werden automatisch auf einer Seite angezeigt (ausgenommen Heise-Auto)
 * Heise+ Artikel werden optisch hervorgehoben
 * Heise-Angebote werden optisch leiser
+* Verstecke den Tracking-Dialog, wenn die Option in den Einstellungen aktiv ist
 
 ## Contributions
 

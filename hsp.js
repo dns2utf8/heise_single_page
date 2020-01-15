@@ -78,7 +78,16 @@ const remove_tracking_notice = async _ => {
     }
 };
 remove_tracking_notice();
-setTimeout(remove_tracking_notice, 1500);
-setTimeout(remove_tracking_notice, 2500);
+
+window.addEventListener('load', (event) => {
+    remove_tracking_notice();
+    setTimeout(remove_tracking_notice, 2500);
+});
+
+document.addEventListener('readystatechange', (event) => {
+    remove_tracking_notice();
+    setTimeout(remove_tracking_notice, 1500);
+});
+
 
 })();
