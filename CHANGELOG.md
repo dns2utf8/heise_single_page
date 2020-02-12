@@ -1,5 +1,14 @@
 # Changelog
 
+# 1.3.2
+
+- Delayed Tracker notice optimized
+
+# 1.3.1
+
+- Switch to BSD-4 license
+- Add more events
+
 # 1.3.0
 
 - Add a config option to remove the broken tracking options modal dialog, synchronized if user uses firefox sync

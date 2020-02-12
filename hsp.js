@@ -77,17 +77,20 @@ const remove_tracking_notice = async _ => {
             .forEach(el => el.remove());
     }
 };
-remove_tracking_notice();
+const delayed_remove_tracking_notice = async (event) => {
+    window.requestAnimationFrame(async _ => {
+        remove_tracking_notice();
+        setTimeout(remove_tracking_notice, 1500);
+        setTimeout(_ => {
+            window.requestAnimationFrame(remove_tracking_notice);
+        }, 2500);
+    });
+};
 
-window.addEventListener('load', (event) => {
-    remove_tracking_notice();
-    setTimeout(remove_tracking_notice, 2500);
-});
+delayed_remove_tracking_notice();
 
-document.addEventListener('readystatechange', (event) => {
-    remove_tracking_notice();
-    setTimeout(remove_tracking_notice, 1500);
-});
+window.addEventListener('load', delayed_remove_tracking_notice);
+document.addEventListener('readystatechange', delayed_remove_tracking_notice);
 
 
 })();
