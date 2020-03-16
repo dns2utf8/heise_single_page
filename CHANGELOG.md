@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.4.0
+
+- Show the Heise logo infront of links to other articles
+
 # 1.3.2
 
 - Delayed Tracker notice optimized
