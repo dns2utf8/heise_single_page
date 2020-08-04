@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.4.1
+
+- Fix remove tracking notice consent box
+
 # 1.4.0
 
 - Show the Heise logo infront of links to other articles
