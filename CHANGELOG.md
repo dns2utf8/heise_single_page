@@ -1,5 +1,10 @@
 # Changelog
 
+# 1.5.0
+
+- Increase last resort timer
+- Adapt to the new Firefox 79 manifest format
+
 # 1.4.1
 
 - Fix remove tracking notice consent box
