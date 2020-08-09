@@ -1,5 +1,7 @@
 # heise_single_page
 
+[![Mozilla Add-on](https://img.shields.io/amo/v/heise-single-page)](https://addons.mozilla.org/firefox/addon/heise-single-page/)
+
 **Displays news articles on heise.de on a single page**
 
 Zeigt Heise Artikel auf einer Seite an.
