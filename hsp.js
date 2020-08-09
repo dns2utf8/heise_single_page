@@ -90,7 +90,7 @@ const delayed_remove_tracking_notice = async (event) => {
                     remove_tracking_notice();
                     setTimeout(_ => {
                         window.requestAnimationFrame(remove_tracking_notice);
-                    }, 2500);
+                    }, 15000);
                 });
             }, 2500);
         }, 2500);
