@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.6.0
+
+- Mark Affiliate Links
+
 # 1.5.0
 
 - Increase last resort timer

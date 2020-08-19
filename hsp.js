@@ -44,6 +44,10 @@ const mark_promos = _ => {
         });
 };
 
+const mark_affiliates = _ => {
+    document.querySelectorAll("a.fflt-lnk").forEach(e => e.style.color = PAID_COLOR);
+};
+
 if (location.pathname.indexOf('/forum/') === 0) {
     clicker('show-thread-below-posting');
 }
@@ -69,6 +73,7 @@ document.querySelectorAll('.heiseplus-logo')
 
 // Mark pure promo articles
 mark_promos();
+mark_affiliates();
 // delayed in /newsticker/
 setTimeout(mark_promos, 1500);
 
