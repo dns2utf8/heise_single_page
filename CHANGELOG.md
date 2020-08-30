@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.7.0
+
+- Add techstage.de domain
+
 # 1.6.0
 
 - Mark Affiliate Links
