@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.7.1
+
+- Lower min version required to allow TorBrowser 10
+
 # 1.7.0
 
 - Add techstage.de domain
