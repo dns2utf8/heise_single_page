@@ -80,8 +80,11 @@ setTimeout(mark_promos, 1500);
 const remove_tracking_notice = async _ => {
     const item = await browser.storage.sync.get('tracker_notice');
     if (item.tracker_notice === true) {
-        document.querySelectorAll('#uc-central-banner-modal')
-            .forEach(el => el.remove());
+        document.querySelectorAll('#usercentrics-root')
+            .forEach(el => {
+                document.querySelector('body').style.overflow = 'auto'
+                el.remove();
+            });
     }
 };
 const delayed_remove_tracking_notice = async (event) => {
