@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.8.0
+
+- Hide new Tracking Dialog
+
 # 1.7.1
 
 - Lower min version required to allow TorBrowser 10
