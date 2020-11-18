@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.8.1
+
+- Fix scrolling issue
+
 # 1.8.0
 
 - Hide new Tracking Dialog

@@ -77,38 +77,6 @@ mark_affiliates();
 // delayed in /newsticker/
 setTimeout(mark_promos, 1500);
 
-const remove_tracking_notice = async _ => {
-    const item = await browser.storage.sync.get('tracker_notice');
-    if (item.tracker_notice === true) {
-        document.querySelectorAll('#usercentrics-root')
-            .forEach(el => {
-                document.querySelector('body').style.overflow = 'auto'
-                el.remove();
-            });
-    }
-};
-const delayed_remove_tracking_notice = async (event) => {
-    window.requestAnimationFrame(async _ => {
-        remove_tracking_notice();
-        setTimeout(remove_tracking_notice, 1500);
-        setTimeout(_ => {
-            window.requestAnimationFrame(remove_tracking_notice);
-            setTimeout(_ => {
-                window.requestAnimationFrame(async _ => {
-                    remove_tracking_notice();
-                    setTimeout(_ => {
-                        window.requestAnimationFrame(remove_tracking_notice);
-                    }, 15000);
-                });
-            }, 2500);
-        }, 2500);
-    });
-};
-
-delayed_remove_tracking_notice();
-
-window.addEventListener('load', delayed_remove_tracking_notice);
-document.addEventListener('readystatechange', delayed_remove_tracking_notice);
 
 // add heise logo to in page links
 [...document.querySelectorAll("article#meldung p a")]
@@ -120,3 +88,34 @@ document.addEventListener('readystatechange', delayed_remove_tracking_notice);
     });
 
 })();
+
+
+const body = document.querySelector('body');
+let should_remove_tracking_notice = undefined;
+const remove_tracking_notice_delays = [1500, 2500, 2500, 2500, 5000, 10000];
+const remove_tracking_notice = _ => {
+    document.querySelectorAll('#usercentrics-root')
+        .forEach(el => { el.remove(); });
+    body.style.overflow = 'scroll';
+}
+const delayed_remove_tracking_notice = _ => {
+    window.requestAnimationFrame(_ => {
+        remove_tracking_notice();
+        const next = remove_tracking_notice_delays.shift();
+        if (typeof next === 'number') {
+            setTimeout(delayed_remove_tracking_notice, next);
+        }
+    })
+};
+const setup_remove_tracking_notice = async _ => {
+    const item = await browser.storage.sync.get('tracker_notice');
+    should_remove_tracking_notice = item.tracker_notice === true;
+    
+    if (should_remove_tracking_notice) {
+        delayed_remove_tracking_notice();
+        window.addEventListener('load', delayed_remove_tracking_notice);
+        document.addEventListener('readystatechange', delayed_remove_tracking_notice);
+    }
+};
+
+setup_remove_tracking_notice();
