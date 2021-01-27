@@ -90,13 +90,19 @@ setTimeout(mark_promos, 1500);
 })();
 
 
-const body = document.querySelector('body');
+const html = document.querySelector('html');
 let should_remove_tracking_notice = undefined;
 const remove_tracking_notice_delays = [1500, 2500, 2500, 2500, 5000, 10000];
 const remove_tracking_notice = _ => {
-    document.querySelectorAll('#usercentrics-root')
-        .forEach(el => { el.remove(); });
-    body.style.overflow = 'scroll';
+    Array.from(document.querySelectorAll('iframe'))
+        .map(el => el.parentElement)
+        .forEach(el => {
+            if (el.nodeName === 'DIV') {
+                el.remove();
+            }
+        });
+    //body.style.overflow = 'scroll';
+    html.className = ''
 }
 const delayed_remove_tracking_notice = _ => {
     window.requestAnimationFrame(_ => {
