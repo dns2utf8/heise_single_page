@@ -1,5 +1,11 @@
 # Changelog
 
+# 1.10.0
+
+- New build process
+- Fix marking heise+ articles
+- Improve performance with insertAdjacentHTML
+
 # 1.9.0
 
 - Catch up with cookie banner
@@ -63,7 +69,7 @@
 
 # 1.1.0
 
-- Open Forum Thread automaticaly
+- Open Forum Thread automatically
 - Implement Heise+ highlight
 
 # 1.0.3

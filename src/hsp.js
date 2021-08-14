@@ -28,6 +28,18 @@ const find_parent_with_class_name = (node, class_name) => {
     return parentElement;
 };
 
+/// node_type must be all uppercase
+const find_parent_element = (node, node_type) => {
+    let parentElement = node.parentElement;
+    while (parentElement.nodeName !== node_type) {
+        if (parentElement.parentElement === null) {
+            return node;
+        }
+        parentElement = parentElement.parentElement;
+    }
+    return parentElement;
+};
+
 const mark_promos = _ => {
     Array.from(document.querySelectorAll("article footer span"))
         .filter(e => e.innerText.trim() === "heise-Angebot")
@@ -57,7 +69,11 @@ if (location.search.indexOf('seite=all') === -1) {
 }
 
 // Highlight Heise+ on main page
-document.querySelectorAll('.a-article-teaser .heiseplus-logo-small')
+document.querySelectorAll('svg.h-4')
+    .forEach(e => {
+        find_parent_element(e, 'ARTICLE').style.background = PLUS_COLOR;
+    });
+document.querySelectorAll('.a-article-meta__heiseplus-logo')
     .forEach(e => {
         find_parent_with_class_name(e, 'a-article-teaser').style.background = PLUS_COLOR;
     });
@@ -81,10 +97,9 @@ setTimeout(mark_promos, 1500);
 // add heise logo to in page links
 [...document.querySelectorAll("article#meldung p a")]
     .map(a => [a, new URL(a.href)])
-    .filter(al => ["www.heise.de", "heise.de"].indexOf(al[1].host) >= 0)
+    .filter(al => ["www.heise.de", "heise.de", "www.techstage.de"].indexOf(al[1].host) >= 0)
     .forEach(al => {
-        const a = al[0];
-        a.innerHTML = HEISE_LOGO + a.innerHTML;
+        al[0].insertAdjacentHTML("afterbegin", HEISE_LOGO);
     });
 
 })();
@@ -92,7 +107,7 @@ setTimeout(mark_promos, 1500);
 
 const html = document.querySelector('html');
 let should_remove_tracking_notice = undefined;
-const remove_tracking_notice_delays = [1500, 2500, 2500, 2500, 5000, 10000];
+const remove_tracking_notice_delays = [250, 250, 500, 750, 1000, 1500, 2500, 2500, 2500, 5000, 10000];
 const remove_tracking_notice = _ => {
     Array.from(document.querySelectorAll('iframe'))
         .map(el => el.parentElement)
