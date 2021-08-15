@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.10.2
+
+- Fix delayed content on front page
+
 # 1.10.1
 
 - Switch to Element.prepend to avoid a 4 week delay with update submission to addons.mozilla.org

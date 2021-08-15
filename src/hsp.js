@@ -69,14 +69,17 @@ if (location.search.indexOf('seite=all') === -1) {
 }
 
 // Highlight Heise+ on main page
-document.querySelectorAll('svg.h-4')
-    .forEach(e => {
-        find_parent_element(e, 'ARTICLE').style.background = PLUS_COLOR;
-    });
 document.querySelectorAll('.a-article-meta__heiseplus-logo')
     .forEach(e => {
         find_parent_with_class_name(e, 'a-article-teaser').style.background = PLUS_COLOR;
     });
+// Beliebt bei Abonenten
+setTimeout(_ => {
+    document.querySelectorAll('.a-article-meta__heiseplus-logo')
+        .forEach(e => {
+            find_parent_element(e, 'ARTICLE').style.background = PLUS_COLOR;
+        });
+});
 
 document.querySelectorAll('.heiseplus-lnk')
     .forEach(el => el.style.background = PLUS_COLOR);
