@@ -99,7 +99,15 @@ setTimeout(mark_promos, 1500);
     .map(a => [a, new URL(a.href)])
     .filter(al => ["www.heise.de", "heise.de", "www.techstage.de"].indexOf(al[1].host) >= 0)
     .forEach(al => {
-        al[0].insertAdjacentHTML("afterbegin", HEISE_LOGO);
+        try {
+            const parser = new DOMParser();
+            const logo = parser.parseFromString(HEISE_LOGO, "text/html");
+            const a = al[0];
+            //a.insertAdjacentElement("afterbegin", logo.querySelector('svg'));
+            a.prepend(logo.querySelector('svg'), " ");
+        } catch (e) {
+            console.error("unable to insert HEISE_LOGO: ", e);
+        }
     });
 
 })();
