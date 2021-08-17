@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.10.3
+
+- Include more front page articles
+
 # 1.10.2
 
 - Fix delayed content on front page

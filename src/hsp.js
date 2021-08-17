@@ -75,11 +75,13 @@ document.querySelectorAll('.a-article-meta__heiseplus-logo')
     });
 // Beliebt bei Abonenten
 setTimeout(_ => {
-    document.querySelectorAll('.a-article-meta__heiseplus-logo')
+    const a = Array.from(document.querySelectorAll("svg.h-4"));
+    const f = a.filter(e => e.querySelector("title"));
+    f.concat(Array.from(document.querySelectorAll('.a-article-meta__heiseplus-logo')))
         .forEach(e => {
             find_parent_element(e, 'ARTICLE').style.background = PLUS_COLOR;
         });
-});
+}, 1024);
 
 document.querySelectorAll('.heiseplus-lnk')
     .forEach(el => el.style.background = PLUS_COLOR);
