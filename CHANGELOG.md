@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.11.1
+
+- Fix stability regression
+
 # 1.11.0
 
 - Fix CSS rule of inserted inline heise logo

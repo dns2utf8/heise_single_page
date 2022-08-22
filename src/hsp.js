@@ -134,16 +134,18 @@ const remove_tracking_notice = _ => {
     
     // günstiger
     body.style.overflow = 'scroll';
-    document.querySelectorAll("#CybotCookiebotDialog").remove();
-    document.querySelectorAll("#CybotCookiebotDialogBodyUnderlay").remove();
+    try {
+        document.querySelectorAll("#CybotCookiebotDialog").remove();
+        document.querySelectorAll("#CybotCookiebotDialogBodyUnderlay").remove();
+    } catch(_e) { /* ignore */ }
 }
 const delayed_remove_tracking_notice = _ => {
     window.requestAnimationFrame(_ => {
-        remove_tracking_notice();
         const next = remove_tracking_notice_delays.shift();
         if (typeof next === 'number') {
             setTimeout(delayed_remove_tracking_notice, next);
         }
+        remove_tracking_notice();
     })
 };
 const setup_remove_tracking_notice = async _ => {
