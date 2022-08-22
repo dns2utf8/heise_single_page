@@ -4,6 +4,7 @@
 
 - Fix CSS rule of inserted inline heise logo
 - Prepare for manifest v3 upgrade
+- Support guenstiger.de
 
 # 1.10.3
 
