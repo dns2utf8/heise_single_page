@@ -3,7 +3,7 @@
   "name": "Heise Single Page",
   "description": "Displays news articles on heise.de as single page",
   "manifest_version": 2,
-  "version": "1.10.3",
+  "version": "1.11.0",
   "homepage_url": "https://gitlab.com/dns2utf8/heise_single_page",
   "icons": {
     "48": "logo.png"
@@ -20,7 +20,8 @@
     {
       "matches": [
         "*://*.heise.de/*",
-        "*://*.techstage.de/*"
+        "*://*.techstage.de/*",
+        "*://*.guenstiger.de/*"
       ],
       "js": ["./hsp.js"],
       "run_at": "document_end"

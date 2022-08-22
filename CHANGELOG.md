@@ -1,5 +1,10 @@
 # Changelog
 
+# 1.11.0
+
+- Fix CSS rule of inserted inline heise logo
+- Prepare for manifest v3 upgrade
+
 # 1.10.3
 
 - Include more front page articles
