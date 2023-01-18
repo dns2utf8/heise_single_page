@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.12.0
+
+- Support telepolis.de
+
 # 1.11.1
 
 - Fix stability regression
