@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.12.1
+
+- Support t3n.de
+
 # 1.12.0
 
 - Support telepolis.de
